@@ -1,4 +1,4 @@
-// Assign the data from `data.js` to a descriptive letiable
+// Assign the data from `data.js`
 let tableData = data;
 // Select the button
 let button = d3.select("#filter-btn");
@@ -11,7 +11,7 @@ form.on("submit",runEnter);
 function runEnter() {
   // Prevent the page from refreshing
   d3.event.preventDefault();
-  // Select the input element and get the raw HTML node
+  // Select the input element
   let inputElement = d3.select("#datetime");
   // Get the value property of the input element
   let inputValue = inputElement.property("value");
@@ -19,7 +19,7 @@ function runEnter() {
   let filteredSightings = tableData.filter(sighting=>{
     return sighting.datetime === inputValue
   });
-
+// Append to table
   let tbody = d3.select("tbody");
 
   filteredSightings.forEach((sight) => {
